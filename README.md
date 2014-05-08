@@ -12,11 +12,11 @@ Code-sign Eclipse with `eclipse-signer`.
 ## Requirements
 - Mac OS X 10.9.2
 - Eclipse 4.3 JEE Kepler
-- Apple Developer Program Membership for _certificates and key added to KeyChain_:
--- [Apple Inc. Root Certificate](http://www.apple.com/appleca/AppleIncRootCertificate.cer)
--- [Apple Developer ID CA](http://www.apple.com/certificateauthority/DeveloperIDCA.cer)
--- Developer Certificate issued with Developer Program Membership (*.cer)
--- Private Key used for certificate (*.p12)
+- Apple Developer Program Membership for __certificates and key added to KeyChain__:
+  - [Apple Inc. Root Certificate](http://www.apple.com/appleca/AppleIncRootCertificate.cer)
+  - [Apple Developer ID CA](http://www.apple.com/certificateauthority/DeveloperIDCA.cer)
+  - Developer Certificate issued with Developer Program Membership (*.cer)
+  - Private Key used for certificate (*.p12)
 
 ## Installation
 `git clone https://github.com/TeamFDT/eclipse-signer.git`
