@@ -1,0 +1,28 @@
+#!/bin/bash
+
+version="v0.0.1"
+usage="Usage: eclipse-signer /path/to/Eclipse.app"
+err[1]="Invalid command"
+
+# Check for Eclipse folder parameter
+if [[ -z "$@" ]]
+then
+  echo "${err[1]}"
+  echo "${usage}"
+  exit 1
+fi
+
+app=$1
+read -p "Your Apple Developer ID: " developerId
+
+codesign --force --verify --verbose --sign "Developer ID Application: ${developerId}" $app/Contents/MacOS/eclipse.ini
+codesign --force --verify --verbose --sign "Developer ID Application: ${developerId}" $app/Contents/MacOS/launcher
+codesign --force --verify --verbose --sign "Developer ID Application: ${developerId}" $app
+
+# Verify app
+if `codesign -v $app`
+then
+  echo "Eclipse signed successfully!"
+else
+  echo "Eclipse signing failed!"
+fi
