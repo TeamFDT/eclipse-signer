@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="v0.1.0"
+version="v0.1.2"
 usage="Usage: eclipse-signer /path/to/Eclipse.app"
 err[1]="Invalid command"
 err[2]="Invalid app container"
@@ -19,11 +19,11 @@ then
 fi
 
 app=$1
-read -p "Your Apple Developer ID (e.g. 3rd Party Mac Developer Application: Interactive Pioneers GmbH (XOPR4SD7S2)): " developerId
+read -p "Your Apple Developer ID (e.g. Interactive Pioneers GmbH (XOPR4SD7S2)): " developerId
 
-codesign --force --verify --verbose --sign "${developerId}" $app/Contents/MacOS/eclipse.ini
-codesign --force --verify --verbose --sign "${developerId}" $app/Contents/MacOS/launcher
-codesign --force --verify --verbose --sign "${developerId}" $app
+codesign --force --verify --verbose --sign "Developer ID Application: ${developerId}" $app/Contents/MacOS/eclipse.ini
+codesign --force --verify --verbose --sign "Developer ID Application: ${developerId}" $app/Contents/MacOS/launcher
+codesign --force --verify --verbose --sign "Developer ID Application: ${developerId}" $app
 
 # Verify app
 if `codesign -v $app`
