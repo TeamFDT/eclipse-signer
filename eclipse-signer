@@ -22,6 +22,7 @@ app=$1
 read -p "Your Apple Developer ID (e.g. Interactive Pioneers GmbH (XOPR4SD7S2)): " developerId
 
 codesign --force --verify --verbose --sign "Developer ID Application: ${developerId}" $app/Contents/MacOS/eclipse.ini
+codesign --force --verify --verbose --sign "Developer ID Application: ${developerId}" $app/Contents/MacOS/eclipse
 codesign --force --verify --verbose --sign "Developer ID Application: ${developerId}" $app/Contents/MacOS/launcher
 codesign --force --verify --verbose --sign "Developer ID Application: ${developerId}" $app
 
