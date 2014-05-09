@@ -1,13 +1,19 @@
 #!/bin/bash
 
-version="v0.0.1"
+version="v0.1.0"
 usage="Usage: eclipse-signer /path/to/Eclipse.app"
 err[1]="Invalid command"
+err[2]="Invalid app container"
 
 # Check for Eclipse folder parameter
 if [[ -z "$@" ]]
 then
   echo "${err[1]}"
+  echo "${usage}"
+  exit 1
+elif [[ ! -d $1 ]]
+then
+  echo "${err[2]}"
   echo "${usage}"
   exit 1
 fi
